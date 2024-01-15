@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { MoonIcon, SunIcon } from "../Icons";
 import UseThemeSwitcher from "@/hooks/useThemeSwitcher";
 import SidebarContainer from "@/containers/SidebarContainer";
+import _ from "lodash";
 
 const CustomLink = ({ href, title, className }) => {
 	const router = useRouter();
@@ -33,8 +34,15 @@ export default function NavBar({ routesArr, navMode, microsoftSignInStart }) {
 
 	useEffect(() => {
 		window.addEventListener("scroll", () => {
-			window.scrollY > 50 ? setShowBackground(true) : setShowBackground(false);
+			setShowBackground(true);
 		});
+
+		window.addEventListener(
+			"scroll",
+			_.debounce(() => {
+				setShowBackground(false);
+			}, 1000)
+		);
 
 		return () => {
 			window.removeEventListener("scroll", null);
