@@ -66,7 +66,10 @@ export default function Home() {
 											key={i}
 											className='flex flex-row items-center space-x-4'
 										>
-											<FontAwesomeIcon icon={faBullseye} />
+											<FontAwesomeIcon
+												className='w-[15px] h-[15px]'
+												icon={faBullseye}
+											/>
 											<div className='font-medium'>{e.title}</div>
 										</div>
 									))}
