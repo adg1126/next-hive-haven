@@ -9,9 +9,24 @@ import hannah from "../../public/images/hannah.jpg";
 import hazeldina from "../../public/images/hazel-dina.jpg";
 
 export const productArr = [
-	{ title: "8x8-inch Beeswax Wrapper", img: productPic1, price: "₱250" },
-	{ title: "11x11-inch Beeswax Wrapper", img: productPic2, price: "₱300" },
-	{ title: "14x14-inch Beeswax Wrapper", img: productPic3, price: "₱350" },
+	{
+		title: "8x8-inch Beeswax Wrapper",
+		href: "/products/eightbyeight",
+		img: productPic1,
+		price: "₱250",
+	},
+	{
+		title: "11x11-inch Beeswax Wrapper",
+		href: "/products/elevenbyeleven",
+		img: productPic2,
+		price: "₱300",
+	},
+	{
+		title: "14x14-inch Beeswax Wrapper",
+		href: "/products/fourteenbyfourteen",
+		img: productPic3,
+		price: "₱350",
+	},
 ];
 
 export const taglineArr = [

@@ -3,10 +3,7 @@ import Image from "next/image";
 import Head from "next/head";
 import productPic3 from "../../public/images/product-pic-3.jpg";
 import productPic1 from "../../public/images/product-pic-1.jpg";
-import {
-	AnimatedTextSpring,
-	AnimatedTextTypeWriter,
-} from "@/components/AnimatedText";
+import { AnimatedTextTypeWriter } from "@/components/AnimatedText";
 import PageTransition from "@/components/PageTransition";
 import { raleway } from "@/styles/fonts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -81,13 +78,14 @@ export default function Home() {
 				</section>
 
 				{/* Section 2 */}
-				<section className='w-full h-screen flex justify-center py-24'>
+				<section className='w-full h-full flex justify-center py-24'>
 					<div className='w-4/5 flex flex-col space-y-20 items-center top-10'>
-						<AnimatedTextSpring
+						<AnimatedTextTypeWriter
 							text='New Arrivals'
-							className={`${raleway.className} font-semibold italic text-5xl xl:text-5xl lg:text-6xl md:text-4xl sm:text-3xl text-center`}
+							className={`${raleway.className} font-black italic text-5xl xl:text-5xl lg:text-6xl md:text-4xl sm:text-3xl text-center`}
 						/>
-						<div className='flex w-full overflow-x-scroll space-x-4'>
+
+						<div className='w-4/5 sm:w-11/12 grid grid-cols-3 gap-4 xl:grid-cols-1 items-center'>
 							{productArr.map((p, i) => (
 								<ProductCard
 									key={i}
