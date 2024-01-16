@@ -2,11 +2,11 @@ import productPic3 from "../../public/images/product-pic-3.jpg";
 import productPic1 from "../../public/images/product-pic-1.jpg";
 import productPic2 from "../../public/images/product-pic-2.jpg";
 import productPic4 from "../../public/images/product-pic-4.jpg";
-import brett from "../../public/images/brett-dimatac.jpeg";
-import eira from "../../public/images/eira-chavez.png";
+import angelicagutierrez from "../../public/images/angelica-gutierrez.JPG";
+import brettdimatac from "../../public/images/brett-dimatac.jpeg";
+import eirachavez from "../../public/images/eira-chavez.png";
 import hannah from "../../public/images/hannah.jpg";
-import hazel from "../../public/images/hazel-dina.jpg";
-import angelica from "../../public/images/angelica-gutierrez.JPG";
+import hazeldina from "../../public/images/hazel-dina.jpg";
 
 export const productArr = [
 	{ title: "Standard Beeswax Wrapper", img: productPic1 },
@@ -114,7 +114,7 @@ export const teamArr = [
 	{
 		name: "Bret Michael Dimatatac",
 		role: "Chief Executive Officer",
-		img: brett,
+		img: brettdimatac,
 		paragraphArr: [
 			`As the Chief Executive Officer of Hive Haven: Beeswax Wraps, Bret Michael R. Dimatatac is in charge of the company's overall management and strategic direction. As CEO, Dimatatac is responsible for managing daily operations and making sure the mission and objectives of the organization are consistent with its basic values. His duties also include spearheading growth projects, keeping a laser-like focus on customer satisfaction, and cultivating a cooperative and creative work atmosphere.`,
 			`Additionally, Dimatatac plays a key role in financial management, marketing strategy, and product development decision-making processes. He is essential in guiding Hive Haven toward long-term success because of his awareness of market and business trends. In addition to its internal activities, he also has the capacity to interact with outside parties like partners, investors, and suppliers in an effort to develop and fortify bonds that support the success of the business as a whole.`,
@@ -137,7 +137,7 @@ export const teamArr = [
 	{
 		name: "Hazel Diña",
 		role: "Marketing Head",
-		img: hazel,
+		img: hazeldina,
 		connectionsArr: [
 			{
 				title: "John Gokongwei",
@@ -153,7 +153,7 @@ export const teamArr = [
 	{
 		name: "Angelica Gutierrez",
 		role: "Chief Finance Officer",
-		img: angelica,
+		img: angelicagutierrez,
 		connectionsArr: [
 			{ title: "Enrique Razon, JR.", paragraphArr: ["Accounting Manager"] },
 			{ title: "ANdrew Tan", paragraphArr: ["Budget and Planning Specialist"] },
@@ -183,7 +183,7 @@ export const teamArr = [
 	{
 		name: "Eira De Chavez",
 		role: "Director for Sales",
-		img: eira,
+		img: eirachavez,
 		connectionsArr: [
 			{
 				title: "Henry Sy",

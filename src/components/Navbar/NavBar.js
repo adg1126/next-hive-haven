@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Logo from "../../../public/images/logo.jpg";
+import Logo from "../../../public/images/logo.png";
 import { useRouter } from "next/router";
 import { MoonIcon, SunIcon } from "../Icons";
 import UseThemeSwitcher from "@/hooks/useThemeSwitcher";

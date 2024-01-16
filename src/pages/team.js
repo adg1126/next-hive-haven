@@ -37,12 +37,27 @@ export default function team() {
 									key={i}
 									className='flex flex-col space-y-5'
 								>
-									{t.img && (
+									{t.img ? (
 										<Image
 											class='w-[150px] h-[150px] rounded-full'
 											src={t.img}
 											alt='Rounded avatar'
 										/>
+									) : (
+										<div className='relative w-[150px] h-[150px] overflow-hidden bg-white rounded-full dark:bg-gray-600'>
+											<svg
+												className='absolute w-[150px] h-[150px] text-gray-400'
+												fill='currentColor'
+												viewBox='0 0 20 20'
+												xmlns='http://www.w3.org/2000/svg'
+											>
+												<path
+													fill-rule='evenodd'
+													d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z'
+													clip-rule='evenodd'
+												></path>
+											</svg>
+										</div>
 									)}
 									<AnimatedTextTypeWriter
 										text={t.name}
