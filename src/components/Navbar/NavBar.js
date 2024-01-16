@@ -34,15 +34,8 @@ export default function NavBar({ routesArr, navMode, microsoftSignInStart }) {
 
 	useEffect(() => {
 		window.addEventListener("scroll", () => {
-			setShowBackground(true);
+			window.scrollY > 50 ? setShowBackground(true) : setShowBackground(false);
 		});
-
-		window.addEventListener(
-			"scroll",
-			_.debounce(() => {
-				setShowBackground(false);
-			}, 1000)
-		);
 
 		return () => {
 			window.removeEventListener("scroll", null);
