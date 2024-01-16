@@ -24,19 +24,6 @@ export default function team() {
 
 			<PageTransition />
 			<main className='flex flex-col items-center text-dark w-full min-h-screen dark:text-light'>
-				{/* <section className='w-4/5 h-screen items-center flex flex-row space-x-10'>
-					<div className='w-1/2 md:w-full'></div>
-					<div className='w-1/2 flex flex-col lg:w-full lg:text-center text-left space-y-6'>
-						<AnimatedTextTypeWriter
-							text={"Mission"}
-							className='text-6xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-3xl text-left lg:text-center'
-						/>
-						<AnimatedTextSpring
-							text={`Hive Haven’s mission is to transform plastic packaging to a more environmentally friendly and biodegradable packaging alternative such as beeswax wrappers. In accordance with the objective of producing zero plastic waste, beeswax wrappers are an ideal substitute for packaging as it contains properties that make them durable, reusable, long-lasting, and environmentally friendlier than plastic wrappers. Hive Haven strives to offer a wide range of packaging for goods, from perishable to non-perishable, and offers both nearby and long-distance product delivery. We seek to bring about a positive change and improve the overall condition of the environment By advocating for a plastic-free environment and offering eco-friendly substitutes.`}
-							className='text-left lg:text-center font-medium md:text-sm sm:text-xs'
-						/>
-					</div>
-				</section> */}
 				<section className='w-full h-full flex justify-center py-24'>
 					<div className='w-4/5 flex flex-col items-center top-10 space-y-16'>
 						<AnimatedTextTypeWriter
@@ -50,6 +37,13 @@ export default function team() {
 									key={i}
 									className='flex flex-col space-y-5'
 								>
+									{t.img && (
+										<Image
+											class='w-[150px] h-[150px] rounded-full'
+											src={t.img}
+											alt='Rounded avatar'
+										/>
+									)}
 									<AnimatedTextTypeWriter
 										text={t.name}
 										className={`${raleway.className} font-black italic text-6xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-3xl text-left lg:text-center`}

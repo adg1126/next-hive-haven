@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-// import Logo from '../Logo';
+import Logo from "../../../public/images/logo.jpg";
 import { useRouter } from "next/router";
 import { MoonIcon, SunIcon } from "../Icons";
 import UseThemeSwitcher from "@/hooks/useThemeSwitcher";
 import SidebarContainer from "@/containers/SidebarContainer";
+import Image from "next/image";
 import _ from "lodash";
 
 const CustomLink = ({ href, title, className }) => {
@@ -70,8 +71,12 @@ export default function NavBar({ routesArr, navMode, microsoftSignInStart }) {
 				routesArr={routesArr}
 			/>
 			<div className='absolute left-[50%] translate-x-[-50%]'>
-				{/* <Logo /> */}
-				Logo
+				<Image
+					src={Logo}
+					alt='logo'
+					className='w-[80px] h-[80px]'
+					priority
+				/>
 			</div>
 
 			<nav className='flex flex-row items-center justify-center gap-4'>

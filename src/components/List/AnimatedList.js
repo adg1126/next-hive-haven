@@ -7,10 +7,10 @@ const ListItem = (list) => {
 
 	return (
 		<li
-			liRef={liRef}
+			ref={liRef}
 			className='my-8 first:mt-0 last:mt-0 w-[60%] mx-auto flex flex-col items-center justify-between'
 		>
-			<ListIcon ref={liRef} />
+			<ListIcon liRef={liRef} />
 			<motion.div
 				initial={{ y: 50 }}
 				whileInView={{ y: 0 }}

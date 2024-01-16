@@ -4,7 +4,7 @@ import { motion, useScroll } from "framer-motion";
 export default function ListIcon({ liRef }) {
 	const { scrollYProgress } = useScroll({
 		target: liRef,
-		offset: ["start start", "end end"],
+		offset: ["center end", "center center"],
 	});
 
 	return (
