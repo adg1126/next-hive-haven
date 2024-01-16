@@ -7,9 +7,10 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductCard({ img, href, title }) {
 	return (
-		<div className='max-w-sm bg-light border border-gray-200 shadow dark:bg-dark dark:border-light'>
+		<div className='max-w-sm bg-white border rounded-lg border-gray-200 shadow-lg dark:bg-black dark:border-light'>
 			<Link href={"/products/"}>
 				<Image
+					className='rounded-lg'
 					alt={title}
 					src={img}
 				/>
