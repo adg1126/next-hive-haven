@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import React from "react";
 import { motion, useScroll } from "framer-motion";
 
@@ -7,10 +6,6 @@ export default function ListIcon({ liRef }) {
 		target: liRef,
 		offset: ["start start", "end end"],
 	});
-
-	useEffect(() => {
-		console.log(scrollYProgress);
-	}, [scrollYProgress]);
 
 	return (
 		<figure className='absolute left-0 stroke-dark dark:stroke-light'>

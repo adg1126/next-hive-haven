@@ -2,48 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import ListIcon from "./ListIcon.js";
 
-const arr = [
-	{
-		position: "Intern",
-		company: "Facebook",
-		companyLink: "",
-		time: "Summer 2021",
-		address: "Menlo Park, CA.",
-		work: `Worked on a team responsible for developing a new mobile app feature that allowed users to create and 
-		share short-form video content, including designing and implementing a new user interface and developing 
-		the backend infrastructure to support the feature.`,
-	},
-	{
-		position: "Software Developer",
-		company: "Amazon",
-		companyLink: "",
-		time: "2020-2021",
-		address: "Seattle, WA.",
-		work: `Worked on a team responsible for developing Amazon's mobile app, including implementing new features such 
-		as product recommendations and user reviews, and optimizing the app's performance and reliability.`,
-	},
-	{
-		position: "Software Developer",
-		company: "Microsoft",
-		companyLink: "",
-		time: "Summer 2019",
-		address: "Redmond, WA.",
-		work: `Worked on a team responsible for developing new features for Microsoft's Windows operating system, 
-		including implementing a new user interface for a system settings panel and optimizing the performance of 
-		a core system component.`,
-	},
-	{
-		position: "Teaching Assistant",
-		company: "MIT",
-		companyLink: "",
-		time: "Fall 2018",
-		address: "Massachusetts Ave, Cambridge, MA.",
-		work: `Assisted in teaching a course on computer programming, held office hours to help students with assignments, 
-		and graded exams and assignments.`,
-	},
-];
-
-const ListItem = ({ title, paragraph }) => {
+const ListItem = (list) => {
 	const liRef = useRef(null);
 
 	return (
@@ -57,9 +16,18 @@ const ListItem = ({ title, paragraph }) => {
 				whileInView={{ y: 0 }}
 				transition={{ duration: 0.5, type: "spring" }}
 			>
-				<h3 className='capitalize font-bold text-2xl text-primary'>{title}</h3>
+				<h3 className='capitalize font-bold text-2xl text-primary'>
+					{list?.title}
+				</h3>
 				<span className='capitalize font-medium text-dark/75'></span>
-				<p className='font-medium w-full'>{paragraph}</p>
+				{list?.paragraphArr.map((p, i) => (
+					<p
+						key={i}
+						className='font-medium w-full'
+					>
+						{p}
+					</p>
+				))}
 			</motion.div>
 		</li>
 	);
@@ -82,7 +50,7 @@ export default function AnimatedList({ liArr }) {
 				className='absolute left-9 top-0 w-[4px] h-full bg-dark origin-top'
 			/>
 			<ul className='w-full flex flex-col items-start justify-between ml-4'>
-				{liArr.map((e, i) => (
+				{liArr?.map((e, i) => (
 					<ListItem
 						key={i}
 						{...e}
