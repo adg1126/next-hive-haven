@@ -15,7 +15,7 @@ export default function team() {
 	return (
 		<>
 			<Head>
-				<title>About | Hive Haven</title>
+				<title>Team | Hive Haven</title>
 				<meta
 					name='description'
 					content=''

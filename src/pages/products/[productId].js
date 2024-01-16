@@ -15,7 +15,7 @@ export default function Product() {
 	return (
 		<>
 			<Head>
-				<title>Home | Hive Haven</title>
+				<title>Products | Hive Haven</title>
 				<meta
 					name='description'
 					content=''
