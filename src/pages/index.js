@@ -85,7 +85,7 @@ export default function Home() {
 					<div className='w-4/5 flex flex-col space-y-20 items-center top-10'>
 						<AnimatedTextSpring
 							text='New Arrivals'
-							className={`${raleway.className} ${raleway.className} font-black italic text-5xl xl:text-5xl lg:text-6xl md:text-4xl sm:text-3xl text-center`}
+							className={`${raleway.className} font-semibold italic text-5xl xl:text-5xl lg:text-6xl md:text-4xl sm:text-3xl text-center`}
 						/>
 						<div className='flex w-full overflow-x-scroll space-x-4'>
 							{productArr.map((p, i) => (
