@@ -2,38 +2,64 @@ import React, { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import ListIcon from "./ListIcon.js";
 
-const List = ({ p }) => {
+const arr = [
+	{
+		position: "Intern",
+		company: "Facebook",
+		companyLink: "",
+		time: "Summer 2021",
+		address: "Menlo Park, CA.",
+		work: `Worked on a team responsible for developing a new mobile app feature that allowed users to create and 
+		share short-form video content, including designing and implementing a new user interface and developing 
+		the backend infrastructure to support the feature.`,
+	},
+	{
+		position: "Software Developer",
+		company: "Amazon",
+		companyLink: "",
+		time: "2020-2021",
+		address: "Seattle, WA.",
+		work: `Worked on a team responsible for developing Amazon's mobile app, including implementing new features such 
+		as product recommendations and user reviews, and optimizing the app's performance and reliability.`,
+	},
+	{
+		position: "Software Developer",
+		company: "Microsoft",
+		companyLink: "",
+		time: "Summer 2019",
+		address: "Redmond, WA.",
+		work: `Worked on a team responsible for developing new features for Microsoft's Windows operating system, 
+		including implementing a new user interface for a system settings panel and optimizing the performance of 
+		a core system component.`,
+	},
+	{
+		position: "Teaching Assistant",
+		company: "MIT",
+		companyLink: "",
+		time: "Fall 2018",
+		address: "Massachusetts Ave, Cambridge, MA.",
+		work: `Assisted in teaching a course on computer programming, held office hours to help students with assignments, 
+		and graded exams and assignments.`,
+	},
+];
+
+const ListItem = ({ title, paragraph }) => {
 	const liRef = useRef(null);
 
 	return (
 		<li
-			ref={liRef}
-			className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between md:w-[80%]'
+			liRef={liRef}
+			className='my-8 first:mt-0 last:mt-0 w-[60%] mx-auto flex flex-col items-center justify-between'
 		>
-			<ListIcon liRef={liRef} />
+			<ListIcon ref={liRef} />
 			<motion.div
-				className='max-w-[385px]'
 				initial={{ y: 50 }}
 				whileInView={{ y: 0 }}
 				transition={{ duration: 0.5, type: "spring" }}
 			>
-				<h3 className='capitalize font-bold text-2xl sm:text-xl xs:text-lg text-primary dark:text-primaryDark'>
-					{p?.title}&nbsp;
-				</h3>
-				{Array.isArray(p?.paragraph) ? (
-					<div className='flex flex-col space-y-5'>
-						{p.paragraph.map((p, i) => (
-							<p
-								key={i}
-								className='font-medium w-full md:text-sm my-2'
-							>
-								{p}
-							</p>
-						))}
-					</div>
-				) : (
-					<p className='font-medium w-full md:text-sm'>{p.paragraph}</p>
-				)}
+				<h3 className='capitalize font-bold text-2xl text-primary'>{title}</h3>
+				<span className='capitalize font-medium text-dark/75'></span>
+				<p className='font-medium w-full'>{paragraph}</p>
 			</motion.div>
 		</li>
 	);
@@ -49,17 +75,17 @@ export default function AnimatedList({ liArr }) {
 	return (
 		<div
 			ref={ref}
-			className='w-[75%] mx-auto relative lg:w-[90%] md:w-full'
+			className='w-[75%] mx-auto relative'
 		>
 			<motion.div
 				style={{ scaleY: scrollYProgress }}
-				className='absolute left-9 top-0 w-[4px] h-full bg-primary origin-top dark:bg-primaryDark md:w-[2px] md:left-[30px] xs:left-[20px]'
+				className='absolute left-9 top-0 w-[4px] h-full bg-dark origin-top'
 			/>
-			<ul className='w-full flex flex-col items-start justify-between ml-4 xs:ml-2'>
+			<ul className='w-full flex flex-col items-start justify-between ml-4'>
 				{liArr.map((e, i) => (
-					<List
+					<ListItem
 						key={i}
-						p={e}
+						{...e}
 					/>
 				))}
 			</ul>
