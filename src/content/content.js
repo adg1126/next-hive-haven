@@ -9,10 +9,9 @@ import hannah from "../../public/images/hannah.jpg";
 import hazeldina from "../../public/images/hazel-dina.jpg";
 
 export const productArr = [
-	{ title: "Standard Beeswax Wrapper", img: productPic1 },
-	{ title: "Green Beeswax Wrapper", img: productPic2 },
-	{ title: "Honeycomb Pattern Beeswax Wrapper", img: productPic3 },
-	{ title: "Pattern Beeswax Wrapper", img: productPic4 },
+	{ title: "8x8 inch", img: productPic1, price: "₱250" },
+	{ title: "11x11 inch", img: productPic2, price: "₱300" },
+	{ title: "14x14 inch", img: productPic3, price: "₱350" },
 ];
 
 export const taglineArr = [
