@@ -2,10 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { raleway } from "@/styles/fonts";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function ProductCard({ img, href, title }) {
+export default function ProductCard({ img, href, title, price }) {
 	return (
 		<div className='max-w-sm bg-white border rounded-lg border-gray-200 shadow-lg dark:bg-black dark:border-light'>
 			<Link href={"/products/"}>
@@ -21,14 +19,7 @@ export default function ProductCard({ img, href, title }) {
 				>
 					{title}
 				</p>
-				<div className='flex flex-row space-x-1'>
-					<FontAwesomeIcon icon={faStar} />
-					<FontAwesomeIcon icon={faStar} />
-					<FontAwesomeIcon icon={faStar} />
-					<FontAwesomeIcon icon={faStar} />
-					<FontAwesomeIcon icon={faStar} />
-				</div>
-				<p className={`text-gray-400 text-left lg:text-center`}>₱300</p>
+				<p className={`text-gray-400 text-left lg:text-center`}>{price}</p>
 			</div>
 		</div>
 	);
