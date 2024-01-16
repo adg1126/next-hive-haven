@@ -39,12 +39,11 @@ export default function Home() {
 			<PageTransition />
 			<main className='flex flex-col items-center text-dark w-full min-h-screen dark:text-light'>
 				{/* Section 1 */}
-				<section className='w-full h-screen flex items-center'>
+				<section className='relative w-full h-screen flex items-center'>
 					<Image
 						alt='beeswax wrapper'
 						src={productPic3}
-						layout='fill'
-						objectFit='cover'
+						fill
 						className={`w-full h-screen flex items-center`}
 					/>
 					<div
@@ -101,7 +100,6 @@ export default function Home() {
 					<Image
 						alt='beeswax wrapper'
 						src={productPic1}
-						objectFit='cover'
 						className={`w-full h-screen flex items-center`}
 					/>
 					<div className='bg-gradient-to-r from-light dark:from-dark absolute inset-0 h-screen flex flex-col items-center justify-center w-3/5'>
@@ -133,7 +131,7 @@ export default function Home() {
 							className={`${raleway.className} font-black italic text-5xl xl:text-5xl lg:text-6xl md:text-4xl sm:text-3xl text-center`}
 						/>
 
-						<div className='w-4/5 grid grid-cols-2 gap-4 items-center'>
+						<div className='w-4/5 sm:w-11/12 grid grid-cols-2 gap-4 xl:grid-cols-1 items-center'>
 							{productDescriptionArr.map((p, i) => (
 								<CardWIthOverlay
 									{...p}

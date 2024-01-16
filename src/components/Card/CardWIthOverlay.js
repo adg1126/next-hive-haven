@@ -3,11 +3,10 @@ import Image from "next/image";
 
 export default function CardWIthOverlay({ img, title, paragraph }) {
 	return (
-		<div className='min-w-[350px] min-h-[250px] relative isolate flex flex-col justify-end overflow-hidden rounded-lg p-6'>
+		<div className='min-w-[300px] min-h-[250px] relative isolate flex flex-col justify-end overflow-hidden rounded-lg p-6'>
 			<Image
 				src={img}
 				alt='University of Southern California'
-				objectFit='cover'
 				className='absolute inset-0 h-full w-full object-cover'
 			/>
 			<div className='absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40'></div>
