@@ -3,6 +3,8 @@ import Link from "next/link";
 import Logo from "../../../public/images/logo.png";
 import { useRouter } from "next/router";
 import { MoonIcon, SunIcon } from "../Icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import UseThemeSwitcher from "@/hooks/useThemeSwitcher";
 import SidebarContainer from "@/containers/SidebarContainer";
 import Image from "next/image";
@@ -85,14 +87,6 @@ export default function NavBar({ routesArr, navMode, microsoftSignInStart }) {
 					className='flex flex-row items-center justify-center whitespace-nowrap bg-blueGray-500 text-white font-bold text-xs px-3 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 bg-dark hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark dark:bg-light dark:text-dark
           hover:dark:bg-dark hover:dark:text-light hover:dark:border-light group gap-2 cursor-pointer'
 				>
-					<svg
-						className='w-[25px] h-[25px] fill-light dark:fill-dark group-hover:fill-dark dark:group-hover:fill-light'
-						xmlns='http://www.w3.org/2000/svg'
-						viewBox='0 0 448 512'
-					>
-						Sign in
-						<path d='M0 32h214.6v214.6H0V32zm233.4 0H448v214.6H233.4V32zM0 265.4h214.6V480H0V265.4zm233.4 0H448V480H233.4V265.4z' />
-					</svg>
 					<div>Sign in</div>
 				</div>
 
@@ -107,6 +101,13 @@ export default function NavBar({ routesArr, navMode, microsoftSignInStart }) {
 					) : (
 						<SunIcon className='fill-dark' />
 					)}
+				</button>
+				<button
+					className={`flex w-[35px] h-[35px] items-center justify-center rounded-full p-2 ${
+						mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
+					}`}
+				>
+					<FontAwesomeIcon icon={faShoppingCart} />
 				</button>
 			</nav>
 		</nav>
