@@ -24,7 +24,7 @@ export default function Product() {
 
 			<PageTransition />
 			<main className='flex flex-col items-center text-dark w-full min-h-screen dark:text-light'>
-				<section className='w-4/5 h-full flex justify-center py-24'>
+				<section className='w-4/5 h-screen flex justify-center py-24'>
 					<div className='w-1/2 flex p-10 flex-col bg-white dark:bg-dark space-y-20 items-center top-10'>
 						{productArr.map((p, i) =>
 							p.href.slice(10) === productId ? (
@@ -32,7 +32,7 @@ export default function Product() {
 									key={i}
 									src={p.img}
 									alt='productPic3'
-									className='w-full border rounded-lg shadow-2xl lg:w-full md:inline-block md:w-full'
+									className='w-auto h-full border rounded-lg shadow-2xl lg:w-full md:inline-block md:w-full'
 									priority
 									sizes='(max-width:768px) 100vw, (max-width: 1200px) 50vw, 50vw'
 								/>

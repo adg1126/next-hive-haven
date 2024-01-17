@@ -8,7 +8,7 @@ export default function ProductCard({ img, href, title, price }) {
 		<div className='max-w-sm bg-white border rounded-lg border-gray-200 shadow-lg dark:bg-black dark:border-light'>
 			<Link href={href}>
 				<Image
-					className='rounded-lg'
+					className='w-full max-h-[325px] rounded-lg object-cover'
 					alt={title}
 					src={img}
 				/>

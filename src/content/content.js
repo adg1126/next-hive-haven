@@ -2,17 +2,19 @@ import productPic3 from "../../public/images/product-pic-3.jpg";
 import productPic1 from "../../public/images/product-pic-1.jpg";
 import productPic2 from "../../public/images/product-pic-2.jpg";
 import productPic4 from "../../public/images/product-pic-4.jpg";
+import productPic5 from "../../public/images/product-pic-5.jpg";
 import angelicagutierrez from "../../public/images/angelica-gutierrez.JPG";
 import brettdimatac from "../../public/images/brett-dimatac.jpeg";
 import eirachavez from "../../public/images/eira-chavez.png";
 import hannah from "../../public/images/hannah.jpg";
 import hazeldina from "../../public/images/hazel-dina.jpg";
+import nathan from "../../public/images/nathan.jpg";
 
 export const productArr = [
 	{
 		title: "8x8-inch Beeswax Wrapper",
 		href: "/products/eightbyeight",
-		img: productPic1,
+		img: productPic5,
 		price: "₱250",
 	},
 	{
@@ -54,7 +56,7 @@ export const productDescriptionArr = [
 	{
 		title: "USP",
 		paragraph: `Beeswax-based items offer a more environmentally conscious option for packaging, surpassing the eco-friendliness of traditional plastic wrappers.`,
-		img: productPic3,
+		img: productPic4,
 	},
 ];
 
@@ -138,6 +140,7 @@ export const teamArr = [
 	{
 		name: "Nathan Araneta",
 		role: "Operations Manager",
+		img: nathan,
 		connectionsArr: [
 			{ title: "Ramon Ang", paragraphArr: ["Production Supervisor"] },
 			{ title: "Manny Villar", paragraphArr: ["Quality Control Specialist"] },
