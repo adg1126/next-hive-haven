@@ -9,7 +9,7 @@ import {
 import AnimatedList from "@/components/List/AnimatedList";
 
 import productPic3 from "../../public/images/product-pic-3.jpg";
-import productPic1 from "../../public/images/product-pic-1.jpg";
+import productPic2 from "../../public/images/product-pic-2.jpg";
 import buildingPic from "../../public/images/building.png";
 import mapPic from "../../public/images/map.png";
 import { objectivesArr } from "@/content/content";
@@ -26,19 +26,19 @@ export default function about() {
 			</Head>
 
 			<PageTransition />
-			<main className='flex flex-col items-center text-dark w-full min-h-screen dark:text-light'>
+			<main className='flex flex-col lg:space-y-20 items-center text-dark w-full min-h-screen dark:text-light'>
 				{/* Section 1 */}
-				<section className='w-4/5 h-screen items-center flex flex-row space-x-10'>
-					<div className='w-1/2 md:w-full'>
+				<section className='w-4/5 h-screen lg:flex-col lg:h-full items-center flex flex-row space-x-10'>
+					<div className='w-1/2 md:w-full lg:w-full'>
 						<Image
 							src={productPic3}
 							alt='productPic3'
-							className='w-full border rounded-lg shadow-2xl lg:w-full md:inline-block md:w-full'
+							className='w-full h-[90vh] lg:h-[50vh] object-cover border rounded-lg shadow-2xl lg:w-full md:inline-block md:w-full'
 							priority
 							sizes='(max-width:768px) 100vw, (max-width: 1200px) 50vw, 50vw'
 						/>
 					</div>
-					<div className='w-1/2 flex flex-col lg:w-full lg:text-center text-left space-y-6'>
+					<div className='w-1/2 lg:mt-8 flex flex-col lg:w-full lg:text-center text-left space-y-6'>
 						<AnimatedTextTypeWriter
 							text={"Mission"}
 							className='text-6xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-3xl text-left lg:text-center'
@@ -51,8 +51,8 @@ export default function about() {
 				</section>
 
 				{/* Section 2 */}
-				<section className='w-4/5 h-screen items-center flex flex-row space-x-10'>
-					<div className='w-1/2 flex flex-col lg:w-full lg:text-center text-left space-y-6'>
+				<section className='w-4/5 h-screen lg:flex-col-reverse lg:space-y-20 lg:h-full items-center flex flex-row space-x-10'>
+					<div className='w-1/2 lg:mt-8 flex flex-col lg:w-full lg:text-center text-left space-y-6'>
 						<AnimatedTextTypeWriter
 							text={"Vission"}
 							className='text-6xl xl:text-5xl lg:text-6xl md:text-5xl sm:text-3xl text-left lg:text-center'
@@ -62,11 +62,11 @@ export default function about() {
 							className='text-left lg:text-center font-medium md:text-sm sm:text-xs'
 						/>
 					</div>
-					<div className='w-1/2 md:w-full'>
+					<div className='w-1/2 md:w-full lg:w-full'>
 						<Image
-							src={productPic1}
+							src={productPic2}
 							alt='productPic1'
-							className='w-full border rounded-lg shadow-2xl lg:w-full md:inline-block md:w-full'
+							className='w-full h-[90vh] lg:h-[50vh] object-cover border rounded-lg shadow-2xl lg:w-full md:inline-block md:w-full'
 							priority
 							sizes='(max-width:768px) 100vw, (max-width: 1200px) 50vw, 50vw'
 						/>
@@ -92,7 +92,7 @@ export default function about() {
 				</section>
 
 				{/* Section 4 */}
-				<section className='w-4/5 h-screen items-center flex flex-row space-x-10'>
+				<section className='w-4/5 h-full items-center flex flex-row space-x-10'>
 					<div className='w-1/2 md:w-full'>
 						<Image
 							src={buildingPic}
