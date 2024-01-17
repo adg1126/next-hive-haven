@@ -31,7 +31,7 @@ const CustomLink = ({ href, title, className }) => {
 	);
 };
 
-export default function NavBar({ routesArr, navMode, microsoftSignInStart }) {
+export default function NavBar({ routesArr, navMode }) {
 	const [mode, setMode] = UseThemeSwitcher(),
 		[showBackground, setShowBackground] = useState(false);
 
@@ -73,22 +73,24 @@ export default function NavBar({ routesArr, navMode, microsoftSignInStart }) {
 				routesArr={routesArr}
 			/>
 			<div className='absolute left-[50%] translate-x-[-50%]'>
-				<Image
-					src={Logo}
-					alt='logo'
-					className='w-[80px] h-[80px]'
-					priority
-				/>
+				<Link href='/'>
+					<Image
+						src={Logo}
+						alt='logo'
+						className='w-[80px] h-[80px]'
+						priority
+					/>
+				</Link>
 			</div>
 
 			<nav className='flex flex-row items-center justify-center gap-4'>
-				<div
-					onClick={microsoftSignInStart}
+				<Link
+					href='/signin'
 					className='flex flex-row items-center justify-center whitespace-nowrap bg-blueGray-500 text-white font-bold text-xs px-3 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 bg-dark hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark dark:bg-light dark:text-dark
           hover:dark:bg-dark hover:dark:text-light hover:dark:border-light group gap-2 cursor-pointer'
 				>
 					<div>Sign in</div>
-				</div>
+				</Link>
 
 				<button
 					className={`flex w-[30px] h-[30px] items-center justify-center rounded-full p-1 ${

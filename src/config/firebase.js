@@ -1,5 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, OAuthProvider } from "firebase/auth";
+import { initializeApp, applicationDefault, cert } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyCW8XyFCso-tYTMu2uBekXqFw3os958X2E",
@@ -13,18 +14,43 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+const db = getFirestore(app);
 
-export const microsoftProvider = new OAuthProvider("google.com");
+export const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGooglePopup = () =>
+	signInWithPopup(auth, googleProvider);
 
-export const signInWithMicrosoftAsync = async () => {
-	const res = await signInWithPopup(auth, microsoftProvider);
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+	if (!userAuth) return;
 
-	try {
-		const credential = OAuthProvider.credentialFromResult(res);
-		const { accessToken, idToken } = credential;
+	const userRef = db.doc(`users/${userAuth.uid}`);
 
-		return credential;
-	} catch (err) {
-		return err;
+	const snapshot = await userRef.get();
+
+	if (!snapshot.exists) {
+		const { displayName, email } = userAuth;
+		const createdAt = new Date();
+
+		try {
+			await userRef.set({
+				displayName,
+				email,
+				createdAt,
+				...additionalData,
+			});
+		} catch (err) {
+			console.log(err);
+		}
 	}
+
+	return userRef;
 };
+
+export const getCurrentUser = () =>
+	new Promise((reseolve, reject) => {
+		const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+			unsubscribe();
+			reseolve(userAuth);
+		}, reject);
+	});

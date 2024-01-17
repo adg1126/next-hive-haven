@@ -1,5 +1,5 @@
 import {
-	MICROSOFT_SIGN_IN_START,
+	GOOGLE_SIGN_IN_START,
 	SIGN_IN_SUCCESS,
 	SIGN_IN_FAILURE,
 	CHECK_USER_SESSION,
@@ -11,9 +11,12 @@ import {
 	SIGN_UP_FAILURE,
 } from "./userActionTypes";
 
-export const microsoftSignInStart = () => ({
-	type: MICROSOFT_SIGN_IN_START,
-});
+export const googleSignInStart = () => {
+	console.log("from action");
+	return {
+		type: GOOGLE_SIGN_IN_START,
+	};
+};
 
 export const signInSuccess = (user) => ({
 	type: SIGN_IN_SUCCESS,

@@ -1,19 +1,15 @@
-import { takeLatest, put, all, call } from "redux-saga/effects";
+import { call, put, all, takeEvery, takeLatest } from "redux-saga/effects";
 import {
-	MICROSOFT_SIGN_IN_START,
+	googleProvider,
+	createUserProfileDocument,
+	getCurrentUser,
+	signInWithGooglePopup,
+} from "../../config/firebase";
+import {
+	GOOGLE_SIGN_IN_START,
 	CHECK_USER_SESSION,
 	SIGN_OUT_START,
-	SIGN_UP_START,
-	SIGN_UP_SUCCESS,
 } from "./userActionTypes";
-import {
-	auth,
-	microsoftProvider,
-	signInWithMicrosoftAsync,
-	// createUserProfileDocument,
-	// getCurrentUser,
-} from "../../config/firebase";
-import { signInWithPopup, OAuthProvider } from "firebase/auth";
 import {
 	signInSuccess,
 	signInFailure,
@@ -30,45 +26,26 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
 			additionalData
 		);
 		const userSnapshot = yield userRef.get();
+
+		yield console.log(userSnapshot);
 		yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
 	} catch (err) {
 		yield put(signInFailure(err.message));
 	}
 }
 
-export function* signInWithMicrosoft() {
-	yield microsoftProvider.setCustomParameters({
-		prompt: "consent",
-		tenant: "08195d68-0190-47b8-8344-b172f23ce9c5",
-	});
-	const res = yield signInWithPopup(auth, microsoftProvider);
-	const credential = yield OAuthProvider.credentialFromResult(res);
-
+export function* signInWithGoogle() {
 	try {
-		const user = yield signInWithMicrosoftAsync();
+		const { user } = yield signInWithGooglePopup(googleProvider);
 		yield getSnapshotFromUserAuth(user);
-		yield put(signInSuccess(user));
 	} catch (err) {
 		yield put(signInFailure(err.message));
 	}
 }
 
-export function* onMicrosoftSignInStart() {
-	yield takeLatest(MICROSOFT_SIGN_IN_START, signInWithMicrosoft);
+export function* onGoogleSignInStart() {
+	yield takeEvery(GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
-
-export function* onSignUpStart() {
-	yield takeLatest(SIGN_UP_START, signUp);
-}
-
-export function* signInAfterSignUp({ payload: { user, additionalData } }) {
-	yield getSnapshotFromUserAuth(user, additionalData);
-}
-
-export function* onSignUpSuccess() {
-	yield takeLatest(SIGN_UP_SUCCESS, signInAfterSignUp);
-}
-
 export function* isUserAuthenticated() {
 	try {
 		const userAuth = yield getCurrentUser();
@@ -105,10 +82,8 @@ export function* onSignOutStart() {
 
 export function* userSagas() {
 	yield all([
-		call(onMicrosoftSignInStart),
+		call(onGoogleSignInStart),
 		call(onCheckUserSession),
 		call(onSignOutStart),
-		// call(onSignUpStart),
-		call(onSignUpSuccess),
 	]);
 }

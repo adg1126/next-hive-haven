@@ -1,4 +1,4 @@
-import { all, call } from "@redux-saga/core/effects";
+import { call, all } from "redux-saga/effects";
 import { userSagas } from "./user/userSagas";
 
 export default function* rootSaga() {
